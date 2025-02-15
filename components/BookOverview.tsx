@@ -12,8 +12,8 @@ const BookOverview = ({
   total_copies,
   available_copies,
   description,
-  coverColor,
-  coverUrl,
+  color,
+  cover,
   video,
   summary,
 }: Book) => {
@@ -57,8 +57,8 @@ const BookOverview = ({
         <div className={"relative"}>
           <BookCover
             variant={"wide"}
-            coverImage={coverUrl}
-            coverColor={coverColor}
+            coverImage={cover}
+            coverColor={color}
             className={"z-10"}
           />
           <div
@@ -68,8 +68,8 @@ const BookOverview = ({
           >
             <BookCover
               variant={"wide"}
-              coverImage={coverUrl}
-              coverColor={coverColor}
+              coverImage={cover}
+              coverColor={color}
             />
           </div>
         </div>

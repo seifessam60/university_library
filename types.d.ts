@@ -10,6 +10,6 @@ interface Book {
   video: string;
   summary: string;
   isLoanedBook?: boolean;
-  coverColor: string;
-  coverUrl: string;
+  color: string;
+  cover: string;
 }
