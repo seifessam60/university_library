@@ -1,7 +1,6 @@
 import NextAuth, { User } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-
 import { compare } from "bcryptjs";
+import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "./database/drizzle";
 import { users } from "./database/schema";
 import { eq } from "drizzle-orm";
@@ -33,8 +32,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         return {
           id: user[0].id.toString(),
-          email: user[0].email,
-          name: user[0].fullName,
+          email: user[0].email.toString(),
+          name: user[0].fullName.toString(),
         } as User;
       },
     }),
@@ -55,7 +54,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.user.id = token.id as string;
         session.user.name = token.name as string;
       }
-      console.log(session);
       return session;
     },
   },
