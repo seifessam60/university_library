@@ -35,6 +35,7 @@ interface Props {
   folder: string;
   variant: "dark" | "light";
   onFileChange: (filePath: string) => void;
+  value?: string;
 }
 
 const ImageUpload = ({
@@ -44,10 +45,13 @@ const ImageUpload = ({
   folder,
   variant,
   onFileChange,
+  value,
 }: Props) => {
   const { toast } = useToast();
   const ikUploadRef = useRef(null);
-  const [file, setFile] = useState<{ filePath: string } | null>(null);
+  const [file, setFile] = useState<{ filePath: string | null }>({
+    filePath: value ?? null,
+  });
   const [progress, setProgress] = useState(0);
   const styles = {
     button:
@@ -57,6 +61,7 @@ const ImageUpload = ({
     placeholder: variant === "dark" ? "text-light-100" : "text-slate-500",
     text: variant === "dark" ? "text-light-100" : "text-dark-400",
   };
+
   const onSuccess = (res: any) => {
     setFile(res);
     onFileChange(res.filePath);
