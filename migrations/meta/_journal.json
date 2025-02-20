@@ -8,6 +8,13 @@
       "when": 1739794117444,
       "tag": "0000_powerful_shotgun",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1740074567315,
+      "tag": "0001_tranquil_barracuda",
+      "breakpoints": true
     }
   ]
 }
