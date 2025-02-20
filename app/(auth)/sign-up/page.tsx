@@ -12,8 +12,8 @@ const page = () => (
       email: "",
       fullName: "",
       password: "",
-      universityCard: "",
       universityId: 0,
+      universityCard: "",
     }}
     onSubmit={signUp}
   />

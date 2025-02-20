@@ -22,9 +22,10 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/app/constants";
-import ImageUpload from "./ImageUpload";
+import FileUpload from "./FileUpload";
 import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
+import { FileUp } from "lucide-react";
 
 interface Props<T extends FieldValues> {
   schema: ZodType<T>;
@@ -40,7 +41,7 @@ const AuthForm = <T extends FieldValues>({
   onSubmit,
 }: Props<T>) => {
   const router = useRouter();
-  
+
   const isSignIn = type === "SIGN_IN";
 
   const form: UseFormReturn<T> = useForm({
@@ -94,7 +95,14 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <ImageUpload onFileChange={field.onChange} />
+                      <FileUpload
+                        onFileChange={field.onChange}
+                        type="image"
+                        accept="image/*"
+                        placeholder="Upload Your University ID"
+                        folder="university-cards"
+                        variant="dark"
+                      />
                     ) : (
                       <Input
                         required
